@@ -57,8 +57,18 @@ export const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
-  /*Your code here*/
-}
+  discount: function(string) {
+    if (string === 'teacher', 'student') {
+      console.log(18 - (18 * .25));
+    } if (string === 'public') {
+      console.log(18 - (18 * .10));
+    } return discount;
+  } 
+} 
+
+burger.discount('teacher');
+    
+
 
 
 
