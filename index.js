@@ -58,18 +58,16 @@ export const burger = {
   price: 18, 
   category: "Lunch", 
   discount: function(string) {
-    if (string === 'teacher', 'student') {
-      console.log(18 - (18 * .25));
-    } if (string === 'public') {
-      console.log(18 - (18 * .10));
-    } return discount;
-  } 
+    if (string === 'teacher' || string === 'student') {
+     return (this.price - (18 * .25));
+   } if (string === 'public') {
+     return (this.price - (18 * .10));
+   } return discount;
+ }
 } 
 
-burger.discount('teacher');
-    
-
-
+console.log(burger.discount('teacher')); 
+console.log(burger.discount('public'));
 
 
 ///////////////Reviews (MVP)///////////////////
@@ -88,7 +86,7 @@ const reviews = [
 Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
-
+console.log(reviews[5]);
 
 
 
@@ -98,7 +96,8 @@ Using the reviews array above do the following: (no function needed)
   2. log the whole array to the console, make sure the new review is inside of it   
 */
 
-
+reviews.splice(8, 0, {name: 'Mark', rating: 4, feeback: 'A fun place to go for a night out'})
+console.log(reviews);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Reyna's feedback is missing! Use what you know to do the following: (no function needed) 
@@ -106,6 +105,8 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
   2. log the reviews array to the console to check your work
 */
 
+reviews[7].feedback = "this place is chill with really cool people, great for getting work done on weekdays"
+console.log(reviews);
 
 
 
@@ -121,11 +122,12 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+function getReviewByIndex(array, index) {
+  return array[index];
 }
 
-
+console.log(getReviewByIndex(reviews, 1));
+console.log(getReviewByIndex(reviews, 2));
   
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -140,9 +142,15 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(array) {
+  for (const [i, value] of array.entries()) {
+    if (i === array.length - 1) {
+        return array[i];
+    }
+  }
 } 
+
+console.log(getLastReview(reviews));
 
 
 
